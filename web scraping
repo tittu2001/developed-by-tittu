@@ -1,0 +1,26 @@
+Step 1: Import the necessary libraries
+
+import requests
+from bs4 import BeautifulSoup
+
+Step 2: Create a variable for the URL
+
+Step 3: Make the request and store the response
+
+response = requests.get(url)
+
+Step 4: Create a BeautifulSoup objects 
+
+Step 5: Extract the table
+
+table = soup.find('table', {'class': 'wikitable sortable'})
+
+Step 6: Iterate through the rows to extract data
+
+rows = table.find_all('tr')
+for row in rows:
+    cols = row.find_all('td')
+    if len(cols) > 0:
+        country = cols[0].text.strip()
+        population = cols[2].text.strip()
+        print(country, population)
